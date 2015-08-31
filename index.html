@@ -97,5 +97,20 @@
 <hr>
 <h2>Above line convert chrome browser into notepad.</h2>
 <p>data:text/html, &lt;html contenteditable&gt;</p>
+
+<hr>
+<h2>Quick addition for CSP in nginx header (Security)</h2>
+<p>add_header X-XSS-Protection "1; mode=block";</p>
+<p>add_header Content-Security-Policy 
+  <ul>
+    <li>"default-src 'self';</li>
+    <li>script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.google-analytics.com http://www.google-analytics.com https://connect.facebook.net;</li>
+    <li>img-src 'self' https://www.google-analytics.com https://s-static.ak.facebook.com;</li>
+    <li>style-src 'self' 'unsafe-inline' http://fonts.googleapis.com https://fonts.googleapis.com;</li>
+    <li>font-src 'self' https://fonts.gstatic.com http://fonts.gstatic.com https://themes.googleusercontent.com data:;</li>
+    <li>frame-src https://www.facebook.com https://s-static.ak.facebook.com;</li>
+    <li>object-src 'none'";</li>
+  </ul>
+</p>
 </body>
 </html>
